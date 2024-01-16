@@ -39,7 +39,7 @@ class _dashboardState extends State<dashboard> {
                     child: ListTile(onTap: () {
                      Navigator.pushNamed(context, "view",arguments: a);
                     },
-                      leading: Image.network("${a.thumbnail}"),
+                      leading: Image.network("${a.thumbnail}",width: 75,height: 75),
                       title: Text("${a.title}"),
                       trailing: Text("${a.price}"),
                     ),
