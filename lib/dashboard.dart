@@ -12,6 +12,7 @@ class dashboard extends StatefulWidget {
 class _dashboardState extends State<dashboard> {
   // Hello
   final dio = Dio();
+  //sahil
 
   Future getHttp() async {
     final response = await dio.get('https://dummyjson.com/products');
@@ -38,7 +39,7 @@ class _dashboardState extends State<dashboard> {
                     child: ListTile(onTap: () {
                      Navigator.pushNamed(context, "view",arguments: a);
                     },
-                      leading: Image.network("${a.thumbnail}"),
+                      leading: Image.network("${a.thumbnail}",width: 75,height: 75),
                       title: Text("${a.title}"),
                       trailing: Text("${a.price}"),
                     ),

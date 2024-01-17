@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:getwidget/components/carousel/gf_carousel.dart';
+import 'package:getwidget/components/rating/gf_rating.dart';
 import 'package:online_api/myclass.dart';
 import 'package:http/http.dart' as http;
 
@@ -61,10 +62,25 @@ class _viewState extends State<view> {
                         index;
                     },
                   ),
+                  SizedBox(height: 40,),
+                  Text("${p.title}",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25)),
+                  SizedBox(height: 20,),
+                  Text("${p.description}",style: TextStyle(fontSize: 19),),
+                  SizedBox(height: 10,),
+                  Text("Rs : ${p.price}",style: TextStyle(fontSize: 19),),
 
-                  Text("${p.id}"),
-                  Text("${p.title}"),
-                  Text("${p.price}")
+                  Row(mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      GFRating(
+                        value: p.rating,
+                        onChanged: (value) {
+                            p.rating = value;
+
+                        },
+                      ),
+                      Text("  ${p.rating}",style: TextStyle(fontSize: 19),),
+                    ],
+                  ),
                 ],
               );
           }
