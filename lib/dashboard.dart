@@ -23,7 +23,7 @@ class _dashboardState extends State<dashboard> {
     var response = await http.get(url);
     Map m = jsonDecode(response.body);
     return m;
-    // log("${m}");
+
     // print(response);
   }
   @override
