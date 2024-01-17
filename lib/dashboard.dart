@@ -13,9 +13,8 @@ class _dashboardState extends State<dashboard> {
   // Hello
   final dio = Dio();
   //sahil
-
   Future getHttp() async {
-    final response = await dio.get('https://dummyjson.com/products');
+    final response = await dio.get('https://dummyjson.com/products/124');
     Map m = response.data;
     return m;
     // log("${m}");
