@@ -1,7 +1,9 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:online_api/myclass.dart';
-
+import 'package:http/http.dart' as http;
 class dashboard extends StatefulWidget {
   const dashboard({super.key});
 
@@ -12,10 +14,14 @@ class dashboard extends StatefulWidget {
 class _dashboardState extends State<dashboard> {
 
   final dio = Dio();
-
+  // var url = Uri.https('example.com', 'whatsit/create');
+  // var response = await http.post(url, body: {'name': 'doodle', 'color': 'blue'});
+  // print('Response status: ${response.statusCode}');
+  // print('Response body: ${response.body}');
   Future getHttp() async {
-    final response = await dio.get('https://dummyjson.com/products/124');
-    Map m = response.data;
+    final url = await Uri.parse('https://dummyjson.com/products/124');
+    var response = await http.get(url);
+    Map m = jsonDecode(response.body);
     return m;
     // log("${m}");
     // print(response);
